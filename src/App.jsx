@@ -5,11 +5,13 @@ import Favorites from "./Pages/Favorites/Favorites";
 import Basket from "./Pages/Basket/Basket";
 import Contact from "./Pages/Contact/Contact";
 import Product from "./Pages/Product/Product";
+import Home from "./Pages/Home/Home";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Home/>} />
         <Route path="/" element={<Comparison />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/basket" element={<Basket />} />
