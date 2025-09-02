@@ -9,61 +9,65 @@ import { Link } from "react-router-dom";
 
 const headerLink = [
   {
-    icon: <IoWallet className="" />,
-    title: "uzs/usd"
-  }
-]
+    icon: <IoWallet size={23} />,
+    title: "uzs/usd",
+  },
+  {
+    icon: <IoMdStats size={23} />,
+    title: "Сравнение",
+  },
+  {
+    icon: <MdFavoriteBorder size={23} />,
+    title: "Избранное 2",
+  },
+  {
+    icon: <PiShoppingCartDuotone size={23} />,
+    title: "Корзина",
+  },
+  {
+    icon: <RiMessage2Line size={23} />,
+    title: "Контакты",
+  },
+  {
+    icon: <BiMoon size={23} />,
+  },
+  // {
+  //   icon: <CgProfile size={23} />,
+  // },
+];
 
 const Navbar = () => {
-
-
   return (
     <header className="w-full bg-white dark:bg-black">
-      <nav className="container mx-auto  h-20 flex  justify-between items-center">
-        {/* <img src="" alt="" /> */}
+      <nav className="container mx-auto bg-red-200  h-20 flex  justify-between items-center">
+        <img
+          src="https://files.ox-sys.com/cache/original/image/02/4d/50/024d503fb4c6b684439d113460b0f8ea259ff6e1e147d7fb6dcf4e3fd0d4fe04.png"
+          alt="this is logo"
+          className="w-[200px]"
+        />
 
-        <input type="search" />
+        <div className=" border border-[#33333391] px-2 w-[500px] cursor-text">
+          <input
+            type="search"
+            className="outline-none py-1.5"
+            placeholder="поиск товара..."
+          />
+        </div>
         <div className="flex ">
-         <ul>
-          {
-            headerLink.map((item, i)=>(
-              <div key={i}>
-                <li>{item.icon}</li>
-                <li>{item.title}</li>
-              </div>
-            ))
-          }
-         </ul>
-          {/* <Link to="/wallet">
-           <div className="">
-            <IoWallet className="" />
-            <p></p>
-          </div>
-          </Link> */}
-
-          <div>
-            <IoMdStats />
-            <p>Сравненение</p>
-          </div>
-          <div>
-            <MdFavoriteBorder />
-            <p>Избранное 2</p>
-          </div>
-          <div>
-            <PiShoppingCartDuotone />
-            <p>Kорзина</p>
-          </div>
-          <div>
-            <RiMessage2Line />
-            <p>Контакты</p>
-          </div>
-          <div>
-            <BiMoon />
-            <p>Тема</p>
-          </div>
-          <div>
-            <CgProfile />
-          </div>
+          <ul className="flex gap-4 items-center justify-center">
+            {headerLink.map((item, i) => (
+              <li
+                key={i}
+                className="flex items-center gap-1 flex-col justify-center "
+              >
+                {item.icon}
+                {item.title && <span className="text-xs">{item.title}</span>}
+              </li>
+            ))}
+            <div className="bg-gray-600 w-[70px] h-[42px] flex justify-center items-center">
+              <CgProfile size={23} />
+            </div>
+          </ul>
         </div>
       </nav>
     </header>

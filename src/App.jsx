@@ -17,7 +17,7 @@ const App = () => {
   };
 
   return (
-    <div className={darkMode ? "dark scroll-smooth" : "scroll-smooth"}>
+    <div className={ darkMode ? "dark scroll-smooth" : "scroll-smooth"}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

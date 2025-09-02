@@ -1,8 +1,9 @@
+import SwipperSlider from "../../components/SwipperSlider";
 
 const Home = () => {
-  return (
-<div>dsad</div>
-  )
-}
+  return <div>
+    <SwipperSlider/>
+  </div>;
+};
 
-export default Home
+export default Home;
