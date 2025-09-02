@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <header className="w-full bg-white dark:bg-black">
       <nav className="container mx-auto  h-20 flex  justify-between items-center">
-        {/* <img src="" alt="" /> */}
+        <img src="" alt="" />
 
         <input type="search" />
         <div>

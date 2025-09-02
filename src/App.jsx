@@ -10,7 +10,6 @@ import Footer from "./components/Footer";
 import { useState } from "react";
 
 const App = () => {
-
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
@@ -18,16 +17,11 @@ const App = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="">
-      <Navbar/>
-=======
-    <div className={darkMode ? "dark scroll-smooth" : " scroll-smooth"}>
+    <div className={darkMode ? "dark scroll-smooth" : "scroll-smooth"}>
       <Navbar />
->>>>>>> ce07941af47be9df25d39ec40d7dc960080e1042
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Comparison />} />
+        <Route path="/comparison" element={<Comparison />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/contact" element={<Contact />} />
