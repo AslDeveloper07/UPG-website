@@ -1,15 +1,17 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Comparison from "./Pages/Comparison/Comparison";
 import Favorites from "./Pages/Favorites/Favorites";
 import Basket from "./Pages/Basket/Basket";
 import Contact from "./Pages/Contact/Contact";
 import Product from "./Pages/Product/Product";
 import Home from "./Pages/Home/Home";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <div className="dark">
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/" element={<Comparison />} />
@@ -18,7 +20,8 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/product" element={<Product />} />
       </Routes>
-    </BrowserRouter>
+      <Footer/>
+    </div>
   );
 };
 
