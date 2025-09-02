@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { BiMoon } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { IoMdStats } from "react-icons/io";
@@ -8,34 +7,15 @@ import { PiShoppingCartDuotone } from "react-icons/pi";
 import { RiMessage2Line } from "react-icons/ri";
 
 const Navbar = ({ toggleDarkMode }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const headerLink = [
     {
       icon: <IoWallet size={23} className="text-black dark:text-white" />,
-      title: "uzs/usd",
     },
     {
       icon: <IoMdStats size={23} className="text-black dark:text-white" />,
-      title: "Сравнение",
     },
     {
-      icon: (
-        <MdFavoriteBorder size={23} className="text-black dark:text-white" />
-      ),
-      title: "Избранное 2",
+      icon: <MdFavoriteBorder size={23} className="text-black dark:text-white" />,
     },
     {
       icon: (
@@ -44,11 +24,9 @@ const Navbar = ({ toggleDarkMode }) => {
           className="text-black dark:text-white"
         />
       ),
-      title: "Корзина",
     },
     {
       icon: <RiMessage2Line size={23} className="text-black dark:text-white" />,
-      title: "Контакты",
     },
     {
       icon: (
@@ -82,18 +60,13 @@ const Navbar = ({ toggleDarkMode }) => {
         </div>
 
         <div className="flex">
-          <ul className="flex gap-4 items-center justify-center">
+          <ul className="flex gap-6 items-center justify-center">
             {headerLink.map((item, i) => (
               <li
                 key={i}
-                className="flex items-center gap-1 flex-col justify-center cursor-pointer text-black dark:text-[#0066FD]"
+                className="flex items-center justify-center cursor-pointer text-black dark:text-[#0066FD]"
               >
                 {item.icon}
-                {!isScrolled && item.title && (
-                  <span className="text-xs text-black dark:text-[#0066FD]">
-                    {item.title}
-                  </span>
-                )}
               </li>
             ))}
             <div className="bg-gray-600 dark:bg-[#0066FD] w-[70px] h-[42px] flex justify-center items-center rounded-md">
