@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div className="dark">
+    <div className="">
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
