@@ -185,20 +185,23 @@ const Cards = () => {
     },
   ];
 
+  const firstHalf = gamerProducts.slice(0, 10);
+  const secondHalf = gamerProducts.slice(10);
+
   return (
     <div className="dark:bg-black py-10">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold font-strike dark:text-white mb-8">
+      <div className="container mx-auto">
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
           Новинки
         </h1>
 
+        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {gamerProducts.map((item) => (
+          {firstHalf.map((item) => (
             <div
               key={item.id}
               className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover:transition-transform duration-300 flex flex-col"
             >
-              {/* Rasm */}
               <div className="relative w-full h-52 bg-gray-200 dark:bg-[#0c0e0fd3]">
                 <img
                   src={item.image}
@@ -207,7 +210,6 @@ const Cards = () => {
                 />
               </div>
 
-              {/* Ma'lumot */}
               <div className="p-4 flex flex-col gap-3 flex-grow">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2">
                   {item.title}
@@ -216,7 +218,6 @@ const Cards = () => {
                   Brand: <span className="font-medium">{item.brand}</span>
                 </p>
 
-                {/* Rating */}
                 <div className="flex items-center gap-1 text-yellow-400">
                   {Array.from({ length: 5 }, (_, i) => (
                     <FaStar
@@ -234,12 +235,65 @@ const Cards = () => {
                   </span>
                 </div>
 
-                {/* Price */}
                 <div className="text-xl font-bold text-[#0EA5E9]">
                   ${item.price}
                 </div>
 
-                {/* Button */}
+                <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4 rounded-lg shadow-md transition">
+                  В корзину
+                </button>
+              </div>
+            </div>
+          ))}
+
+          <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-5 flex items-center mt-10 mb-4">
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-white ">
+             Лучшие предложения
+            </h2>
+          </div>
+
+          {secondHalf.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover:transition-transform duration-300 flex flex-col"
+            >
+              <div className="relative w-full h-52 bg-gray-200 dark:bg-[#0c0e0fd3]">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-contain p-4"
+                />
+              </div>
+
+              <div className="p-4 flex flex-col gap-3 flex-grow">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Brand: <span className="font-medium">{item.brand}</span>
+                </p>
+
+                <div className="flex items-center gap-1 text-yellow-400">
+                  {Array.from({ length: 5 }, (_, i) => (
+                    <FaStar
+                      key={i}
+                      size={16}
+                      className={
+                        i < Math.floor(item.rating)
+                          ? "fill-yellow-400"
+                          : "fill-gray-400"
+                      }
+                    />
+                  ))}
+                  <span className="text-sm text-gray-600 dark:text-gray-300 ml-2">
+                    {item.rating}
+                  </span>
+                </div>
+
+                <div className="text-xl font-bold text-[#0EA5E9]">
+                  ${item.price}
+                </div>
+
                 <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4 rounded-lg shadow-md transition">
                   В корзину
                 </button>
