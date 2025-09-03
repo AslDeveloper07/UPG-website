@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <div className={darkMode ? "dark scroll-smooth" : "scroll-smooth"}>
-      {/* darkMode va toggleDarkMode ni Navbar ga yuboramiz */}
+      
       <Navbar toggleDarkMode={toggleDarkMode} />
 
       <Routes>
