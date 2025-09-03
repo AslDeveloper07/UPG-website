@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
+import { IoMdStats } from "react-icons/io";
 
 const Cards = () => {
   const navigate = useNavigate();
+  const [favorites, setFavorites] = useState({});
+  const [compares, setCompares] = useState({});
 
   const gamerProducts = [
     {
@@ -188,127 +192,118 @@ const Cards = () => {
     },
   ];
 
-  const firstHalf = gamerProducts.slice(0, 10);
-  const secondHalf = gamerProducts.slice(10);
+  const toggleFavorite = (id) => {
+    setFavorites((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const toggleCompare = (id) => {
+    setCompares((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const handleCardClick = (id) => {
     navigate(`/product/${id}`);
   };
 
+  const firstHalf = gamerProducts.slice(0, 10);
+  const secondHalf = gamerProducts.slice(10);
+
+  const renderCard = (item) => (
+    <div
+      key={item.id}
+      className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover: cursor-pointer transition-transform duration-300 flex flex-col relative"
+    >
+      <div className="relative w-full h-52 bg-gray-200 dark:bg-[#0c0e0fd3]">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-contain p-4"
+          onClick={() => handleCardClick(item.id)}
+        />
+
+        <div className="absolute top-2 right-2 flex flex-col gap-2">
+          <button
+            onClick={() => toggleFavorite(item.id)}
+            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition ${
+              favorites[item.id]
+                ? "bg-[#0EA5E9] text-white"
+                : "bg-white text-gray-700 dark:bg-[#222] dark:text-white"
+            }`}
+          >
+            {favorites[item.id] ? (
+              <MdOutlineFavorite size={22} />
+            ) : (
+              <MdOutlineFavoriteBorder size={22} />
+            )}
+          </button>
+
+          <button
+            onClick={() => toggleCompare(item.id)}
+            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-md transition ${
+              compares[item.id]
+                ? "bg-[#0EA5E9] text-white"
+                : "bg-white text-gray-700 dark:bg-[#222] dark:text-white"
+            }`}
+          >
+            <IoMdStats size={22} />
+          </button>
+        </div>
+      </div>
+
+      <div className="p-4 flex flex-col gap-3 flex-grow">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2">
+          {item.title}
+        </h3>
+
+        <div className="flex flex-row-reverse justify-between">
+          <span className="font-medium bg-[#0ea4e93d] dark:bg-[#0ea4e983] dark:text-white px-4 text-[#0EA5E9]">
+            {item.brand}
+          </span>
+
+          <div className="flex items-center gap-1 text-yellow-400">
+            {Array.from({ length: 5 }, (_, i) => (
+              <FaStar
+                key={i}
+                size={16}
+                className={
+                  i < Math.floor(item.rating)
+                    ? "fill-yellow-400"
+                    : "fill-gray-400"
+                }
+              />
+            ))}
+            <span className="text-sm text-gray-600 dark:text-gray-300 ml-2">
+              {item.rating}
+            </span>
+          </div>
+        </div>
+
+        <div className="text-xl font-bold text-[#0EA5E9]">${item.price}</div>
+        <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4  shadow-md transition">
+          В корзину
+        </button>
+      </div>
+    </div>
+  );
+
   return (
-    <div className="dark:bg-black py-10">
+    <div className="dark:bg-black py-4">
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
           Новинки
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {firstHalf.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => handleCardClick(item.title)}
-              className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover:scale-[1.02] cursor-pointer transition-transform duration-300 flex flex-col"
-            >
-              <div className="relative w-full h-52 bg-gray-200 dark:bg-[#0c0e0fd3]">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-contain p-4"
-                />
-              </div>
+          {firstHalf.map(renderCard)}
+        </div>
 
-              <div className="p-4 flex flex-col gap-3 flex-grow">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2">
-                  {item.title}
-                </h3>
-                <div className="flex flex-row-reverse justify-between">
-               <span className="font-medium bg-[#0ea4e93d] dark:bg-[#0ea4e983] dark:text-white px-4 text-[#0EA5E9]">{item.brand}</span>
+        <div className=" text-xl font-semibold text-gray-800 dark:text-white">
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-white mt-8 mb-4">
+            Лучшие предложения
+          </h1>
+        </div>
 
-                <div className="flex items-center gap-1 text-yellow-400">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <FaStar
-                      key={i}
-                      size={16}
-                      className={
-                        i < Math.floor(item.rating)
-                          ? "fill-yellow-400"
-                          : "fill-gray-400"
-                      }
-                    />
-                  ))}
-                  <span className="text-sm text-gray-600 dark:text-gray-300 ml-2">
-                    {item.rating}
-                  </span>
-                </div>
-             </div>
-
-                <div className="text-xl font-bold text-[#0EA5E9]">
-                  ${item.price}
-                </div>
-                <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4  shadow-md transition">
-                  {" "}
-                  В корзину{" "}
-                </button>
-              </div>
-            </div>
-          ))}
-
-          <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-5 flex items-center mt-10 mb-4">
-            <h2 className="text-3xl font-bold text-gray-800 dark:text-white ">
-              Лучшие предложения
-            </h2>
-          </div>
-
-          {secondHalf.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => handleCardClick(item.title)}
-              className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover:scale-[1.02] cursor-pointer transition-transform duration-300 flex flex-col"
-            >
-              <div className="relative w-full h-52 bg-gray-200 dark:bg-[#0c0e0fd3]">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-contain p-4"
-                />
-              </div>
-
-              <div className="p-4 flex flex-col gap-3 flex-grow">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2">
-                  {item.title}
-                </h3>
-             <div className="flex flex-row-reverse justify-between">
-               <span className="font-medium bg-[#0ea4e93d] dark:bg-[#0ea4e983] dark:text-white px-4 text-[#0EA5E9]">{item.brand}</span>
-
-                <div className="flex items-center gap-1 text-yellow-400">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <FaStar
-                      key={i}
-                      size={16}
-                      className={
-                        i < Math.floor(item.rating)
-                          ? "fill-yellow-400"
-                          : "fill-gray-400"
-                      }
-                    />
-                  ))}
-                  <span className="text-sm text-gray-600 dark:text-gray-300 ml-2">
-                    {item.rating}
-                  </span>
-                </div>
-             </div>
-
-                <div className="text-xl font-bold text-[#0EA5E9]">
-                  ${item.price}
-                </div>
-
-                <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4  shadow-md transition">
-                  {" "}
-                  В корзину{" "}
-                </button>
-              </div>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {secondHalf.map(renderCard)}
         </div>
       </div>
     </div>
