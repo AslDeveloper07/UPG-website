@@ -1,7 +1,10 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Cards = () => {
+  const navigate = useNavigate();
+
   const gamerProducts = [
     {
       id: 1,
@@ -188,6 +191,10 @@ const Cards = () => {
   const firstHalf = gamerProducts.slice(0, 10);
   const secondHalf = gamerProducts.slice(10);
 
+  const handleCardClick = (id) => {
+    navigate(`/product/${id}`);
+  };
+
   return (
     <div className="dark:bg-black py-10">
       <div className="container mx-auto">
@@ -195,12 +202,12 @@ const Cards = () => {
           Новинки
         </h1>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {firstHalf.map((item) => (
             <div
               key={item.id}
-              className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover:transition-transform duration-300 flex flex-col"
+              onClick={() => handleCardClick(item.id)}
+              className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover:scale-[1.02] cursor-pointer transition-transform duration-300 flex flex-col"
             >
               <div className="relative w-full h-52 bg-gray-200 dark:bg-[#0c0e0fd3]">
                 <img
@@ -238,9 +245,9 @@ const Cards = () => {
                 <div className="text-xl font-bold text-[#0EA5E9]">
                   ${item.price}
                 </div>
-
                 <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4 rounded-lg shadow-md transition">
-                  В корзину
+                  {" "}
+                  В корзину{" "}
                 </button>
               </div>
             </div>
@@ -248,14 +255,15 @@ const Cards = () => {
 
           <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-5 flex items-center mt-10 mb-4">
             <h2 className="text-3xl font-bold text-gray-800 dark:text-white ">
-             Лучшие предложения
+              Лучшие предложения
             </h2>
           </div>
 
           {secondHalf.map((item) => (
             <div
               key={item.id}
-              className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover:transition-transform duration-300 flex flex-col"
+              onClick={() => handleCardClick(item.id)}
+              className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover:scale-[1.02] cursor-pointer transition-transform duration-300 flex flex-col"
             >
               <div className="relative w-full h-52 bg-gray-200 dark:bg-[#0c0e0fd3]">
                 <img
@@ -269,9 +277,8 @@ const Cards = () => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Brand: <span className="font-medium">{item.brand}</span>
-                </p>
+             <div className="flex flex-row-reverse justify-between">
+               <span className="font-medium bg-[#0ea4e93d] dark:bg-[#0ea4e983] dark:text-white px-4 text-[#0EA5E9]">{item.brand}</span>
 
                 <div className="flex items-center gap-1 text-yellow-400">
                   {Array.from({ length: 5 }, (_, i) => (
@@ -289,13 +296,15 @@ const Cards = () => {
                     {item.rating}
                   </span>
                 </div>
+             </div>
 
                 <div className="text-xl font-bold text-[#0EA5E9]">
                   ${item.price}
                 </div>
 
                 <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4 rounded-lg shadow-md transition">
-                  В корзину
+                  {" "}
+                  В корзину{" "}
                 </button>
               </div>
             </div>

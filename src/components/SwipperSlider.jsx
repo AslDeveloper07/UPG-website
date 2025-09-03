@@ -16,7 +16,7 @@ const SwipperSlider = () => {
             spaceBetween={30}
             centeredSlides={true}
             autoplay={{
-              delay: 3000, // 3 sekundda almashadi
+              delay: 3000,
               disableOnInteraction: false,
             }}
             pagination={{
@@ -66,7 +66,6 @@ const SwipperSlider = () => {
             </SwiperSlide>
           </Swiper>
 
-          {/* Pastki o‘ng tarafdagi buttonlar */}
           <div className="absolute bottom-4 right-4 flex gap-3 z-10">
             <button className="custom-prev bg-[#0EA5E9] text-white px-4 py-2 rounded-md shadow-md cursor-pointer ">
               <IoIosArrowBack size={25} />
