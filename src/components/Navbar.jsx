@@ -48,7 +48,8 @@ const Navbar = ({ toggleDarkMode }) => {
   ];
 
   return (
-    <header className="w-full bg-white dark:bg-black transition-colors duration-300 fixed top-0 left-0 z-50 shadow">
+   <header className="w-full bg-white/60 dark:bg-[#000000dc] backdrop-blur-3xl transition-colors duration-300 fixed top-0 left-0 z-50 shadow">
+
       <nav className="container mx-auto h-20 flex justify-between items-center relative">
         <Link to="/">
           <img

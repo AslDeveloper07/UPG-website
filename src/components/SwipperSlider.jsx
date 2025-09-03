@@ -9,7 +9,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const SwipperSlider = () => {
   return (
-    <section className="w-full relative mt-[90px]">
+    <section className="w-full relative pt-[90px] dark:bg-black">
       <div className="container mx-auto pb-[20px]">
         <div className="relative">
           <Swiper
