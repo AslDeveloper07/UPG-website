@@ -53,8 +53,8 @@ const Navbar = ({ toggleDarkMode }) => {
     <header className="w-full bg-white/80 dark:bg-[#000000dc] backdrop-blur-3xl transition-colors duration-300 fixed top-0 left-0 z-50 shadow">
       <nav className="container mx-auto py-3 flex justify-between items-center relative">
         <Link to="/">
-          <img src={LogoLight} alt="Light Logo" className="w-[180px] dark:hidden" />
-          <img src={LogoDark} alt="Dark Logo" className="w-[200px] hidden dark:block" />
+          <img src={LogoLight} alt="Light Logo" className="w-[120px] dark:hidden" />
+          <img src={LogoDark} alt="Dark Logo" className="w-[120px] hidden dark:block" />
         </Link>
 
         <div className="fixed left-1/2 top-[14px] -translate-x-1/2 w-[500px]">

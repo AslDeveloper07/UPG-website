@@ -206,7 +206,7 @@ const Cards = () => {
           {firstHalf.map((item) => (
             <div
               key={item.id}
-              onClick={() => handleCardClick(item.id)}
+              onClick={() => handleCardClick(item.title)}
               className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover:scale-[1.02] cursor-pointer transition-transform duration-300 flex flex-col"
             >
               <div className="relative w-full h-52 bg-gray-200 dark:bg-[#0c0e0fd3]">
@@ -221,9 +221,8 @@ const Cards = () => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Brand: <span className="font-medium">{item.brand}</span>
-                </p>
+                <div className="flex flex-row-reverse justify-between">
+               <span className="font-medium bg-[#0ea4e93d] dark:bg-[#0ea4e983] dark:text-white px-4 text-[#0EA5E9]">{item.brand}</span>
 
                 <div className="flex items-center gap-1 text-yellow-400">
                   {Array.from({ length: 5 }, (_, i) => (
@@ -241,11 +240,12 @@ const Cards = () => {
                     {item.rating}
                   </span>
                 </div>
+             </div>
 
                 <div className="text-xl font-bold text-[#0EA5E9]">
                   ${item.price}
                 </div>
-                <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4 rounded-lg shadow-md transition">
+                <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4  shadow-md transition">
                   {" "}
                   В корзину{" "}
                 </button>
@@ -262,7 +262,7 @@ const Cards = () => {
           {secondHalf.map((item) => (
             <div
               key={item.id}
-              onClick={() => handleCardClick(item.id)}
+              onClick={() => handleCardClick(item.title)}
               className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover:scale-[1.02] cursor-pointer transition-transform duration-300 flex flex-col"
             >
               <div className="relative w-full h-52 bg-gray-200 dark:bg-[#0c0e0fd3]">
@@ -302,7 +302,7 @@ const Cards = () => {
                   ${item.price}
                 </div>
 
-                <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4 rounded-lg shadow-md transition">
+                <button className="mt-auto bg-[#0EA5E9] hover:bg-[#0284c7] text-white py-2 px-4  shadow-md transition">
                   {" "}
                   В корзину{" "}
                 </button>
