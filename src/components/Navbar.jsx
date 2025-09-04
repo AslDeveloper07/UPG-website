@@ -47,7 +47,7 @@ const Navbar = ({ toggleDarkMode }) => {
       icon: <MdFavoriteBorder size={23} className="text-black dark:text-white" />,
     },
     {
-      path: "/basket",
+      path: "/cart",
       icon: <PiShoppingCartDuotone size={23} className="text-black dark:text-white" />,
     },
     {

@@ -18,14 +18,14 @@ const App = () => {
 
   return (
     <div className={darkMode ? "dark scroll-smooth" : "scroll-smooth"}>
-      
+
       <Navbar toggleDarkMode={toggleDarkMode} />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/comparison" element={<Comparison />} />
         <Route path="/favorites" element={<Favorites />} />
-        <Route path="/basket" element={<Basket />} />
+        <Route path="/cart" element={<Basket />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/product" element={<Product />} />
       </Routes>
