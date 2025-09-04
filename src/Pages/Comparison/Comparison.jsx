@@ -2,7 +2,9 @@ import React from 'react'
 
 const Comparison = () => {
   return (
-    <div>Comparison</div>
+ <main className='bg-white dark:bg-[#111] w-full h-screen'>
+
+    </main>
   )
 }
 

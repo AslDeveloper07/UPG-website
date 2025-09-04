@@ -2,7 +2,9 @@ import React from 'react'
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+     <main className='bg-white dark:bg-[#111] w-full h-screen'>
+
+    </main>
   )
 }
 
