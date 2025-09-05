@@ -1,10 +1,11 @@
 import React from "react";
 import { Slide1, Stremer } from "../assets/Assets";
+import MyMap from "./MyMap";
 
 const SendMassages = () => {
   return (
     <div>
-      <h1 className="text-4xl font-poppins pb-2 text-black dark:text-white">
+      <h1 className="text-4xl font-poppins pb-2 text-black dark:text-white font-strike">
         Contact
       </h1>
       <div className="w-full bg-pink-600 h-1 mb-4"></div>
@@ -55,6 +56,8 @@ const SendMassages = () => {
           className="w-[50%] h-auto object-cover border-[1px] border-[#fe0096]"
         />
       </div>
+
+      <MyMap/>
     </div>
   );
 };

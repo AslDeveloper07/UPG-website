@@ -288,8 +288,8 @@ const Cards = () => {
   return (
     <div className="dark:bg-black py-4">
       <div className="container mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
-          Новинки
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 font-strike">
+          News
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -297,8 +297,8 @@ const Cards = () => {
         </div>
 
         <div className=" text-xl font-semibold text-gray-800 dark:text-white">
-          <h1 className="text-3xl font-bold text-gray-800 dark:text-white mt-8 mb-4">
-            Лучшие предложения
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-white mt-8 mb-4 font-strike">
+            Best offers
           </h1>
         </div>
 
