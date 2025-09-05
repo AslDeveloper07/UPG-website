@@ -44,7 +44,7 @@ const Footer = () => {
         })}
       </div>
 
-      <div className="container mx-auto px-5 pb-8 border-t border-gray-700 pt-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300 text-base">
+      <div className="container mx-auto px-0 pb-8 border-t border-gray-700 pt-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300 text-base">
         <div className="flex items-start space-x-3">
           <FaPhoneAlt className="text-xl mt-1" />
           <div>
