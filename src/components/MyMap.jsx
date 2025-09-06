@@ -19,7 +19,7 @@ const MyMap = () => {
       <MapContainer
         center={[38.84723094151239, 65.79703132768341]}
         zoom={20}
-        className="h-full w-full"
+        className="h-full w-full z-20"
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

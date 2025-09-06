@@ -56,7 +56,7 @@ const Navbar = ({ toggleDarkMode }) => {
             className="text-black dark:text-white"
           />
           {/* Hoverda chiqadigan panel */}
-          <div className="absolute top-7 right-0 w-[700px] min-h-[150px] bg-white dark:bg-[#111] border border-gray-200 dark:border-[#0EA5E9] rounded-lg shadow-lg hidden group-hover:block z-50">
+          <div className="absolute top-7 right-0 w-[700px] min-h-[150px] bg-white dark:bg-[#111] border border-gray-200 dark:border-[#0EA5E9] rounded-lg shadow-lg hidden group-hover:block z-50000">
             <div className="p-4 text-black dark:text-white text-center">
               <p>Sizning savatingiz hozircha bo‘sh.</p>
             </div>
