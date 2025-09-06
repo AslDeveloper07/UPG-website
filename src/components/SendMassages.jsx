@@ -57,7 +57,7 @@ const SendMassages = () => {
         />
       </div>
 
-      <MyMap/>
+      <MyMap />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { BiMoon } from "react-icons/bi";
 import { MdWbSunny } from "react-icons/md";
@@ -12,24 +12,40 @@ import { LogoDark, LogoLight } from "../assets/Assets";
 
 const Navbar = ({ toggleDarkMode }) => {
   const [walletOpen, setWalletOpen] = useState(false);
+  const walletRef = useRef(null);
+
+  // tashqariga bosilganda yopish
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (walletRef.current && !walletRef.current.contains(e.target)) {
+        setWalletOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const headerLink = [
     {
       path: "",
       icon: (
-        <div
-          className="relative"
-          onClick={() => setWalletOpen((prev) => !prev)}
-        >
-          <IoWallet size={23} className="text-black dark:text-white" />
+        <div ref={walletRef} className="relative">
+          <IoWallet
+            size={23}
+            className="text-black dark:text-white cursor-pointer"
+            onClick={() => setWalletOpen((prev) => !prev)}
+          />
           {walletOpen && (
-            <div className="absolute top-6 left-[-13px] w-15 bg-white dark:bg-[#111] border border-gray-200 dark:border-[#0EA5E9] rounded-lg shadow-lg overflow-hidden animate-fadeIn">
+            <div className="absolute top-6 left-[-13px] w-15 bg-white dark:bg-[#111] border border-gray-200 dark:border-[#0EA5E9] rounded-lg shadow-lg overflow-hidden animate-fadeIn z-50">
               <ul className="flex flex-col">
                 <li className="px-4 py-1 hover:bg-gray-100 dark:hover:bg-[#0EA5E9] dark:hover:text-white cursor-pointer">
-                  UZ
+                  uzs
                 </li>
                 <li className="px-4 py-1 hover:bg-gray-100 dark:hover:bg-[#0EA5E9] dark:hover:text-white cursor-pointer">
-                  EN
+                  usd
                 </li>
               </ul>
             </div>
@@ -55,8 +71,7 @@ const Navbar = ({ toggleDarkMode }) => {
             size={23}
             className="text-black dark:text-white"
           />
-          {/* Hoverda chiqadigan panel */}
-          <div className="absolute top-7 right-0 w-[700px] min-h-[150px] bg-white dark:bg-[#111] border border-gray-200 dark:border-[#0EA5E9] rounded-lg shadow-lg hidden group-hover:block z-50000">
+          <div className="absolute top-7 right-0 w-[700px] min-h-[150px] bg-white dark:bg-[#111] border border-gray-200 dark:border-[#0EA5E9] rounded-lg shadow-lg hidden group-hover:block z-50">
             <div className="p-4 text-black dark:text-white text-center">
               <p>Sizning savatingiz hozircha bo‘sh.</p>
             </div>
