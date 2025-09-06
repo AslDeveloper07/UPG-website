@@ -17,8 +17,8 @@ const MyMap = () => {
   return (
     <div className="h-[500px] mt-5 rounded-xl overflow-hidden">
       <MapContainer
-        center={[41.3111, 69.2797]}
-        zoom={13}
+        center={[38.84723094151239, 65.79703132768341]}
+        zoom={20}
         className="h-full w-full"
       >
         <TileLayer
@@ -27,7 +27,7 @@ const MyMap = () => {
         />
 
         {/* Marker */}
-        <Marker position={[41.3111, 69.2797]}>
+        <Marker position={[38.84723094151239, 65.79703132768341]}>
           <Popup>Toshkent markazi</Popup>
         </Marker>
       </MapContainer>

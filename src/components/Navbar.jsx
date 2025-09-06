@@ -28,7 +28,6 @@ const Navbar = ({ toggleDarkMode }) => {
                 <li className="px-4 py-1 hover:bg-gray-100 dark:hover:bg-[#0EA5E9] dark:hover:text-white cursor-pointer">
                   UZ
                 </li>
-
                 <li className="px-4 py-1 hover:bg-gray-100 dark:hover:bg-[#0EA5E9] dark:hover:text-white cursor-pointer">
                   EN
                 </li>
@@ -44,11 +43,26 @@ const Navbar = ({ toggleDarkMode }) => {
     },
     {
       path: "/favorites",
-      icon: <MdFavoriteBorder size={23} className="text-black dark:text-white" />,
+      icon: (
+        <MdFavoriteBorder size={23} className="text-black dark:text-white" />
+      ),
     },
     {
       path: "/cart",
-      icon: <PiShoppingCartDuotone size={23} className="text-black dark:text-white" />,
+      icon: (
+        <div className="relative group">
+          <PiShoppingCartDuotone
+            size={23}
+            className="text-black dark:text-white"
+          />
+          {/* Hoverda chiqadigan panel */}
+          <div className="absolute top-7 right-0 w-[700px] min-h-[150px] bg-white dark:bg-[#111] border border-gray-200 dark:border-[#0EA5E9] rounded-lg shadow-lg hidden group-hover:block z-50">
+            <div className="p-4 text-black dark:text-white text-center">
+              <p>Sizning savatingiz hozircha bo‘sh.</p>
+            </div>
+          </div>
+        </div>
+      ),
     },
     {
       path: "/contact",
@@ -89,7 +103,7 @@ const Navbar = ({ toggleDarkMode }) => {
         </Link>
 
         <div className="fixed left-1/2 top-[14px] -translate-x-1/2 w-[500px]">
-        <div className="border border-[#33333391] dark:border-[#33333391] focus-within:border-[#0EA5E9] px-2 w-full rounded-md bg-[#fffb] dark:bg-[#111] transition duration-300">
+          <div className="border border-[#33333391] dark:border-[#33333391] focus-within:border-[#0EA5E9] px-2 w-full rounded-md bg-[#fffb] dark:bg-[#111] transition duration-300">
             <input
               type="search"
               className="outline-none py-1.5 w-full bg-transparent text-black dark:text-[#0EA5E9] placeholder-gray-500 dark:placeholder-[#808080]"
@@ -105,7 +119,11 @@ const Navbar = ({ toggleDarkMode }) => {
                 key={i}
                 className="flex items-center justify-center cursor-pointer text-black dark:text-[#0EA5E9]"
               >
-                {item.path ? <Link to={item.path}>{item.icon}</Link> : item.icon}
+                {item.path ? (
+                  <Link to={item.path}>{item.icon}</Link>
+                ) : (
+                  item.icon
+                )}
               </li>
             ))}
             <div className="bg-gray-600 dark:bg-[#0EA5E9] w-[70px] h-[42px] flex justify-center items-center rounded-md">
