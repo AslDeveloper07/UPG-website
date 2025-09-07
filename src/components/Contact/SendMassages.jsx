@@ -1,5 +1,5 @@
 import React from "react";
-import { Slide1, Stremer } from "../assets/Assets";
+import { Stremer } from "../../assets/Assets";
 import MyMap from "./MyMap";
 
 const SendMassages = () => {
