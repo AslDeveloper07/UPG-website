@@ -5,7 +5,7 @@ import MyMap from "./MyMap";
 const SendMassages = () => {
   return (
     <div>
-      <h1 className="text-4xl font-poppins pb-2 text-black dark:text-white font-strike">
+      <h1 className="text-4xl pb-2 text-black dark:text-white font-strike">
         Contact
       </h1>
       <div className="w-full bg-pink-600 h-1 mb-4"></div>

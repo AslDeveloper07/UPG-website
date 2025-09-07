@@ -5,7 +5,7 @@ import Basket from "./Pages/Basket/Basket";
 import Contact from "./Pages/Contact/Contact";
 import Product from "./Pages/Product/Product";
 import Home from "./Pages/Home/Home";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 
@@ -18,7 +18,6 @@ const App = () => {
 
   return (
     <div className={darkMode ? "dark scroll-smooth" : "scroll-smooth"}>
-
       <Navbar toggleDarkMode={toggleDarkMode} />
 
       <Routes>
