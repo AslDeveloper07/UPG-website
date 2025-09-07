@@ -5,9 +5,9 @@ import Basket from "./Pages/Basket/Basket";
 import Contact from "./Pages/Contact/Contact";
 import Product from "./Pages/Product/Product";
 import Home from "./Pages/Home/Home";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);

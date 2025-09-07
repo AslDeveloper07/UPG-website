@@ -33,7 +33,7 @@ const NavLinks = ({ toggleDarkMode }) => {
             onClick={() => setWalletOpen((prev) => !prev)}
           />
           {walletOpen && (
-            <div className="absolute top-6 left-[-13px] w-15 bg-white dark:bg-[#111] border border-gray-200 dark:border-[#0EA5E9] rounded-lg shadow-lg overflow-hidden animate-fadeIn z-50">
+            <div className="absolute top-6 left-[-13px] w-16 bg-white dark:bg-[#111] border border-gray-200 dark:border-[#0EA5E9] rounded-lg shadow-lg overflow-hidden animate-fadeIn z-50">
               <ul className="flex flex-col">
                 <li className="px-4 py-1 hover:bg-gray-100 dark:hover:bg-[#0EA5E9] dark:hover:text-white cursor-pointer">
                   uzs
@@ -73,19 +73,12 @@ const NavLinks = ({ toggleDarkMode }) => {
       icon: <RiMessage2Line size={23} className="text-black dark:text-white" />,
     },
     {
+      path: null,
       icon: (
-        <>
-          <BiMoon
-            size={23}
-            onClick={toggleDarkMode}
-            className="cursor-pointer text-black dark:text-white dark:hidden"
-          />
-          <MdWbSunny
-            size={23}
-            onClick={toggleDarkMode}
-            className="cursor-pointer text-black dark:text-white hidden dark:block"
-          />
-        </>
+        <div onClick={toggleDarkMode} className="cursor-pointer">
+          <BiMoon size={23} className="text-black dark:text-white dark:hidden" />
+          <MdWbSunny size={23} className="text-black dark:text-white hidden dark:block" />
+        </div>
       ),
     },
   ];

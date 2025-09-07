@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LogoDark, LogoLight } from "../assets/Assets";
+import { LogoDark, LogoLight } from "../../assets/Assets";
 // import { LogoDark, LogoLight } from "../../assets/Assets";
 
 const Logo = () => {

@@ -1,4 +1,4 @@
-import Cards from "../../components/Cards";
+import Cards from "../../components/ProductCard/Cards";
 import SwipperSlider from "../../components/SwipperSlider";
 
 const Home = () => {
