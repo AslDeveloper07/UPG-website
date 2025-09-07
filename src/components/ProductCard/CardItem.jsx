@@ -4,17 +4,21 @@ import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { IoMdStats } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
-const CardItem = ({ item, favorites, compares, toggleFavorite, toggleCompare }) => {
+const CardItem = ({
+  item,
+  favorites,
+  compares,
+  toggleFavorite,
+  toggleCompare,
+}) => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate(`/product/${item.id}`);
+    navigate(`/product/${item.title}`);
   };
 
   return (
-    <div
-      className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover: cursor-pointer transition-transform duration-300 flex flex-col relative"
-    >
+    <div className="bg-white dark:bg-[#111] shadow-lg overflow-hidden group hover: cursor-pointer transition-transform duration-300 flex flex-col relative">
       <div className="relative w-full h-52 bg-gray-200 dark:bg-[#0c0e0fd3]">
         <img
           src={item.image}
